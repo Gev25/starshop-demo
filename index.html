@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StarShop — Telegram Mini App store with Stars payments</title>
+    <meta
+      name="description"
+      content="Ready-to-launch Telegram Mini App store: catalog, Telegram Stars checkout, automatic delivery and an admin bot. One Node.js process, no database. Interactive demo and source code."
+    />
+    <meta property="og:title" content="StarShop — a shop inside Telegram" />
+    <meta
+      property="og:description"
+      content="Mini App storefront, Stars checkout, automatic delivery, admin bot. One Node.js process, no database."
+    />
+    <meta property="og:image" content="assets/cover.png" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%E2%98%85%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="logo" href="#top">StarShop <span>★</span></a>
+      <nav class="nav">
+        <a href="#demo">Demo</a>
+        <a href="#features">Features</a>
+        <a href="#get">Get the code</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="badge">Telegram Mini App · Stars payments · Source code</div>
+          <h1>A shop inside Telegram.<br /><span>Live in one evening.</span></h1>
+          <p class="lead">
+            StarShop is a ready-to-launch storefront: buyers browse the catalog right in Telegram, pay with
+            Stars, and receive the product automatically. One Node.js process, no database, no payment provider.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#demo">Try the demo</a>
+            <a class="btn btn-ghost" href="https://abrahamyangev.gumroad.com/l/starshop-telegram-mini-app" target="_blank" rel="noopener">Get the source — $22</a>
+          </div>
+          <ul class="chips">
+            <li>Node.js 20+</li>
+            <li>No database</li>
+            <li>HMAC-verified buyers</li>
+            <li>Deploy in minutes</li>
+          </ul>
+        </div>
+
+        <div class="hero-phone" id="demo">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="shop">
+              <div class="shop-head">
+                <div>
+                  <div class="shop-title">StarShop</div>
+                  <div class="shop-sub">Pay with Telegram Stars</div>
+                </div>
+                <div class="avatar">G</div>
+              </div>
+              <div class="catalog" id="catalog"></div>
+              <div class="demo-note">Demo storefront · no real payment</div>
+            </div>
+          </div>
+          <div class="phone-glow"></div>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <h2>What you get</h2>
+        <div class="feature-grid">
+          <article class="feature">
+            <h3>Stars checkout</h3>
+            <p>Invoices via <code>createInvoiceLink</code>. No Stripe, no merchant account, no provider token.</p>
+          </article>
+          <article class="feature">
+            <h3>Verified buyers</h3>
+            <p><code>initData</code> is checked with HMAC on the server — the browser can't fake a customer.</p>
+          </article>
+          <article class="feature">
+            <h3>Automatic delivery</h3>
+            <p>A file link or a text is sent the moment payment succeeds. No manual work.</p>
+          </article>
+          <article class="feature">
+            <h3>Admin inside the bot</h3>
+            <p>Add and hide products, review orders, see revenue and stats with simple commands.</p>
+          </article>
+          <article class="feature">
+            <h3>No database</h3>
+            <p>Products and orders live in JSON. Drop it on Render's free tier or a $3 VPS.</p>
+          </article>
+          <article class="feature">
+            <h3>Native look</h3>
+            <p>The storefront follows the user's Telegram theme — light or dark, it just fits.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="steps">
+        <h2>Three steps to your first sale</h2>
+        <ol class="step-list">
+          <li><span>1</span><div><h3>Create a bot</h3><p>Two minutes with BotFather. Paste the token into <code>.env</code>.</p></div></li>
+          <li><span>2</span><div><h3>Deploy</h3><p>Render free tier or any VPS with Node 20 and HTTPS. The README walks through both.</p></div></li>
+          <li><span>3</span><div><h3>Add products</h3><p>Send <code>/add</code> to the bot and open the Mini App in Telegram. Done.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="cta" id="get">
+        <div class="cta-copy">
+          <h2>Get the source code</h2>
+          <p>
+            Full ZIP with the Mini App, bot, README and deployment guide. Pay once, updates and support for
+            6 months.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://abrahamyangev.gumroad.com/l/starshop-telegram-mini-app" target="_blank" rel="noopener">Buy on Gumroad — $22</a>
+            <a class="btn btn-ghost" href="https://plati.market/itm/starshop-a-telegram-mini-app-store-with-payment-in-stars/6414317" target="_blank" rel="noopener">Plati (RU) — 1 927 ₽</a>
+          </div>
+        </div>
+        <img class="cta-thumb" src="assets/thumb.png" alt="StarShop cover" width="400" height="400" loading="lazy" />
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>StarShop · built with grammY and Express · demo runs on mock data</p>
+    </footer>
+
+    <div class="modal" id="invoice" hidden>
+      <div class="modal-backdrop" data-close></div>
+      <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="invoice-title">
+        <div class="sheet-grip"></div>
+        <div class="sheet-head">
+          <span class="sheet-bot">StarShop bot</span>
+          <span class="sheet-price" id="invoice-price"></span>
+        </div>
+        <h3 id="invoice-title" class="sheet-title">Demo invoice</h3>
+        <p class="sheet-text" id="invoice-text"></p>
+        <button class="btn btn-primary sheet-btn" id="pay">Pay with Stars</button>
+        <button class="btn btn-text" data-close>Cancel</button>
+        <p class="sheet-fine">Demo only — no Telegram Stars are charged.</p>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
